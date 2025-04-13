@@ -5,31 +5,29 @@ import swagger from '@fastify/swagger';
 import swaggerUi from '@fastify/swagger-ui';
 import { env } from './config';
 import { errorHandler } from './middleware/errorHandler';
-import routes from './routes';
+import { exerciseRoutes } from './routes/exercise.routes';
+import { swaggerOptions, swaggerUiOptions } from './docs/swagger';
+import { connectDB } from './config/database';
 
 const app = fastify({
   logger: true,
 });
 
+// Connect to MongoDB
+connectDB();
+
 app.register(cors, {
-  origin: env.corsOrigin,
+  origin: env.CORS_ORIGIN,
 });
 app.register(helmet);
 app.register(swagger, {
-  swagger: {
-    info: {
-      title: 'GymPal API',
-      description: 'API for tracking gym progress',
-      version: '1.0.0',
-    },
-  },
+  ...swaggerOptions,
+  mode: 'dynamic',
 });
-app.register(swaggerUi, {
-  routePrefix: '/api-docs',
-});
+app.register(swaggerUi, swaggerUiOptions);
 
 app.setErrorHandler(errorHandler);
 
-app.register(routes, { prefix: '/api' });
+app.register(exerciseRoutes, { prefix: '/api' });
 
 export default app;

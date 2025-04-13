@@ -14,10 +14,10 @@ export class Exercise extends BaseModel {
   @prop()
   public description?: string;
 
-  @prop({ required: true, enum: MuscleGroups })
+  @prop({ required: true, enum: Object.values(MuscleGroups) })
   public muscleGroup!: MuscleGroups;
 
-  @prop({ required: true, enum: Equipment })
+  @prop({ required: true, enum: Object.values(Equipment) })
   public equipment!: Equipment;
 }
 export const ExerciseModel = getModelForClass(Exercise);
