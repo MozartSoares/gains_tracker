@@ -1,6 +1,7 @@
 import { FastifyDynamicSwaggerOptions } from '@fastify/swagger';
 import { FastifySwaggerUiOptions } from '@fastify/swagger-ui';
-import { Equipment, MuscleGroups } from '../models/Exercise/enums';
+import { Equipment, MuscleGroups } from '@models/Exercise/enums';
+import { ProgramObjective, ProgramLevel } from '@models/Program/enums';
 
 export const swaggerOptions: FastifyDynamicSwaggerOptions = {
   openapi: {
@@ -19,24 +20,33 @@ export const swaggerOptions: FastifyDynamicSwaggerOptions = {
         description: 'Development server',
       },
     ],
-    tags: [
+    security: [
       {
-        name: 'exercises',
-        description: 'Exercise related endpoints',
+        bearerAuth: [],
       },
     ],
     components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT',
+        },
+      },
       schemas: {
         Exercise: {
           type: 'object',
-          required: ['name', 'muscleGroup', 'equipment'],
+          required: ['name', 'muscleGroups', 'equipment'],
           properties: {
             id: { type: 'string', format: 'uuid' },
             name: { type: 'string' },
             description: { type: 'string' },
-            muscleGroup: {
-              type: 'string',
-              enum: Object.values(MuscleGroups),
+            muscleGroups: {
+              type: 'array',
+              items: {
+                type: 'string',
+                enum: Object.values(MuscleGroups),
+              },
             },
             equipment: {
               type: 'string',
@@ -44,6 +54,91 @@ export const swaggerOptions: FastifyDynamicSwaggerOptions = {
             },
             createdAt: { type: 'string', format: 'date-time' },
             updatedAt: { type: 'string', format: 'date-time' },
+          },
+        },
+        WorkoutExercise: {
+          type: 'object',
+          required: ['exercise', 'sets', 'reps'],
+          properties: {
+            exercise: { $ref: '#/components/schemas/Exercise' },
+            sets: { type: 'number', minimum: 1 },
+            reps: { type: 'number', minimum: 1 },
+            weight: { type: 'number', minimum: 0 },
+          },
+        },
+        Workout: {
+          type: 'object',
+          required: ['name', 'duration', 'exercises'],
+          properties: {
+            id: { type: 'string', format: 'uuid' },
+            name: { type: 'string' },
+            description: { type: 'string' },
+            duration: { type: 'number', minimum: 1, description: 'Duration in minutes' },
+            exercises: {
+              type: 'array',
+              items: { $ref: '#/components/schemas/WorkoutExercise' },
+              minItems: 1,
+            },
+            createdAt: { type: 'string', format: 'date-time' },
+            updatedAt: { type: 'string', format: 'date-time' },
+          },
+        },
+        ProgramWorkout: {
+          type: 'object',
+          required: ['workout', 'order'],
+          properties: {
+            workout: { $ref: '#/components/schemas/Workout' },
+            order: { type: 'number', minimum: 1 },
+            focus: { type: 'string' },
+            tips: { type: 'string' },
+          },
+        },
+        Program: {
+          type: 'object',
+          required: ['name', 'objective', 'duration', 'workouts'],
+          properties: {
+            id: { type: 'string', format: 'uuid' },
+            name: { type: 'string' },
+            description: { type: 'string' },
+            objective: {
+              type: 'string',
+              enum: Object.values(ProgramObjective),
+            },
+            duration: { type: 'number', minimum: 1, description: 'Duration in weeks' },
+            workouts: {
+              type: 'array',
+              items: { $ref: '#/components/schemas/ProgramWorkout' },
+              minItems: 1,
+            },
+            frequency: { type: 'number', minimum: 1, description: 'Workouts per week' },
+            level: {
+              type: 'string',
+              enum: Object.values(ProgramLevel),
+            },
+            createdAt: { type: 'string', format: 'date-time' },
+            updatedAt: { type: 'string', format: 'date-time' },
+          },
+        },
+        User: {
+          type: 'object',
+          required: ['email', 'name'],
+          properties: {
+            id: { type: 'string', format: 'uuid' },
+            email: { type: 'string', format: 'email' },
+            name: { type: 'string' },
+            isEmailVerified: { type: 'boolean', default: false },
+            lastLogin: { type: 'string', format: 'date-time' },
+            isActive: { type: 'boolean', default: true },
+            createdAt: { type: 'string', format: 'date-time' },
+            updatedAt: { type: 'string', format: 'date-time' },
+          },
+        },
+        LoginResponse: {
+          type: 'object',
+          required: ['user', 'token'],
+          properties: {
+            user: { $ref: '#/components/schemas/User' },
+            token: { type: 'string' },
           },
         },
         Error: {
@@ -64,6 +159,11 @@ export const swaggerUiOptions: FastifySwaggerUiOptions = {
   uiConfig: {
     docExpansion: 'list',
     deepLinking: false,
+    displayRequestDuration: true,
+    filter: true,
+    showExtensions: true,
+    showCommonExtensions: true,
+    persistAuthorization: true,
   },
   uiHooks: {
     onRequest: function (request, reply, next) {

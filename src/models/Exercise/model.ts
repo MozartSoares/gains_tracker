@@ -14,10 +14,29 @@ export class Exercise extends BaseModel {
   @prop()
   public description?: string;
 
-  @prop({ required: true, enum: Object.values(MuscleGroups) })
-  public muscleGroup!: MuscleGroups;
+  @prop({ required: true, type: () => [String], enum: Object.values(MuscleGroups) })
+  public muscleGroups!: MuscleGroups[];
 
   @prop({ required: true, enum: Object.values(Equipment) })
   public equipment!: Equipment;
+
+  @prop({ required: false, default: null })
+  public userId!: string;
+
+  @prop({ default: false })
+  public private!: boolean;
 }
+
+export const getResponseExercise = (exercise: Exercise & {_id: string}) => {
+  return {
+    id: exercise._id,
+    name: exercise.name,
+    description: exercise.description,
+    muscleGroups: exercise.muscleGroups,
+    equipment: exercise.equipment,
+    private: exercise.private,
+    userId: exercise.userId,
+  };
+};
+
 export const ExerciseModel = getModelForClass(Exercise);

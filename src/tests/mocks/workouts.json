@@ -1,0 +1,150 @@
+{
+  "workouts": [
+    {
+      "id": "1",
+      "name": "Treino de Peito",
+      "description": "Foco em exercícios de peito com peso livre",
+      "duration": 45,
+      "exercises": [
+        {
+          "exercise": {
+            "id": "1",
+            "name": "Bench Press",
+            "description": "Exercício básico de peito com barra",
+            "muscleGroup": "CHEST",
+            "equipment": "BARBELL"
+          },
+          "sets": 4,
+          "reps": 12,
+          "weight": 60
+        },
+        {
+          "exercise": {
+            "id": "2",
+            "name": "Incline Dumbbell Press",
+            "description": "Press com halteres em banco inclinado",
+            "muscleGroup": "CHEST",
+            "equipment": "DUMBBELL"
+          },
+          "sets": 3,
+          "reps": 12,
+          "weight": 20
+        }
+      ],
+      "createdAt": "2024-03-20T10:00:00Z",
+      "updatedAt": "2024-03-20T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "name": "Treino de Pernas",
+      "description": "Treino completo de pernas",
+      "duration": 60,
+      "exercises": [
+        {
+          "exercise": {
+            "id": "3",
+            "name": "Squat",
+            "description": "Agachamento com barra",
+            "muscleGroup": "LEGS",
+            "equipment": "BARBELL"
+          },
+          "sets": 5,
+          "reps": 8,
+          "weight": 100
+        },
+        {
+          "exercise": {
+            "id": "4",
+            "name": "Leg Press",
+            "description": "Press de pernas na máquina",
+            "muscleGroup": "LEGS",
+            "equipment": "MACHINE"
+          },
+          "sets": 4,
+          "reps": 12,
+          "weight": 120
+        }
+      ],
+      "createdAt": "2024-03-20T11:00:00Z",
+      "updatedAt": "2024-03-20T11:00:00Z"
+    },
+    {
+      "id": "3",
+      "name": "Treino de Costas",
+      "description": "Foco em exercícios de costas",
+      "duration": 50,
+      "exercises": [
+        {
+          "exercise": {
+            "id": "5",
+            "name": "Pull-up",
+            "description": "Barra fixa",
+            "muscleGroup": "BACK",
+            "equipment": "BODYWEIGHT"
+          },
+          "sets": 4,
+          "reps": 8
+        },
+        {
+          "exercise": {
+            "id": "6",
+            "name": "Barbell Row",
+            "description": "Remada com barra",
+            "muscleGroup": "BACK",
+            "equipment": "BARBELL"
+          },
+          "sets": 4,
+          "reps": 12,
+          "weight": 50
+        }
+      ],
+      "createdAt": "2024-03-20T12:00:00Z",
+      "updatedAt": "2024-03-20T12:00:00Z"
+    },
+    {
+      "id": "4",
+      "name": "Treino Full Body",
+      "description": "Treino completo do corpo",
+      "duration": 75,
+      "exercises": [
+        {
+          "exercise": {
+            "id": "1",
+            "name": "Bench Press",
+            "description": "Exercício básico de peito com barra",
+            "muscleGroup": "CHEST",
+            "equipment": "BARBELL"
+          },
+          "sets": 3,
+          "reps": 10,
+          "weight": 50
+        },
+        {
+          "exercise": {
+            "id": "3",
+            "name": "Squat",
+            "description": "Agachamento com barra",
+            "muscleGroup": "LEGS",
+            "equipment": "BARBELL"
+          },
+          "sets": 3,
+          "reps": 10,
+          "weight": 80
+        },
+        {
+          "exercise": {
+            "id": "5",
+            "name": "Pull-up",
+            "description": "Barra fixa",
+            "muscleGroup": "BACK",
+            "equipment": "BODYWEIGHT"
+          },
+          "sets": 3,
+          "reps": 8
+        }
+      ],
+      "createdAt": "2024-03-20T13:00:00Z",
+      "updatedAt": "2024-03-20T13:00:00Z"
+    }
+  ]
+}

@@ -16,15 +16,19 @@
     "@fastify/swagger": "^8.15.0",
     "@fastify/swagger-ui": "^1.10.2",
     "@typegoose/typegoose": "^11.0.0",
-    "bcrypt": "^5.0.1",
+    "@types/bcryptjs": "^3.0.0",
+    "@types/jsonwebtoken": "^9.0.9",
+    "axios": "^1.8.4",
+    "bcryptjs": "^3.0.2",
     "dotenv": "^16.0.0",
     "fastify": "^4.0.0",
-    "fastify-decorators": "4.0.0",
+    "fastify-decorators": "3.16.1",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.0.0",
     "yup": "^1.6.1"
   },
   "devDependencies": {
-    "@types/bcrypt": "^5.0.0",
+    "@types/bcrypt": "^5.0.2",
     "@types/jest": "^29.0.0",
     "@types/node": "^20.0.0",
     "jest": "^29.0.0",
@@ -33,5 +37,10 @@
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.0.0"
   },
-  "packageManager": "pnpm@10.5.2+sha512.da9dc28cd3ff40d0592188235ab25d3202add8a207afbedc682220e4a0029ffbff4562102b9e6e46b4e3f9e8bd53e6d05de48544b0c57d4b0179e22c76d1199b"
+  "packageManager": "pnpm@10.5.2+sha512.da9dc28cd3ff40d0592188235ab25d3202add8a207afbedc682220e4a0029ffbff4562102b9e6e46b4e3f9e8bd53e6d05de48544b0c57d4b0179e22c76d1199b",
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "bcrypt"
+    ]
+  }
 }

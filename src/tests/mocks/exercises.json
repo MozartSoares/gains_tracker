@@ -1,124 +1,62 @@
-{
-  "exercises": [
-    {
-      "name": "Bench Press",
-      "description": "Classic chest exercise performed lying on a flat bench",
-      "muscleGroup": "CHEST",
-      "equipment": "BARBELL"
-    },
-    {
-      "name": "Pull-ups",
-      "description": "Upper body exercise performed by hanging from a bar and pulling up",
-      "muscleGroup": "BACK",
-      "equipment": "BODYWEIGHT"
-    },
-    {
-      "name": "Squats",
-      "description": "Lower body compound exercise",
-      "muscleGroup": "QUADRICEPS",
-      "equipment": "BARBELL"
-    },
-    {
-      "name": "Shoulder Press",
-      "description": "Overhead pressing movement for shoulders",
-      "muscleGroup": "SHOULDERS",
-      "equipment": "DUMBBELL"
-    },
-    {
-      "name": "Bicep Curls",
-      "description": "Isolation exercise for biceps",
-      "muscleGroup": "BICEPS",
-      "equipment": "DUMBBELL"
-    },
-    {
-      "name": "Tricep Pushdowns",
-      "description": "Isolation exercise for triceps using cable machine",
-      "muscleGroup": "TRICEPS",
-      "equipment": "CABLE_MACHINE"
-    },
-    {
-      "name": "Leg Press",
-      "description": "Machine-based compound exercise for legs",
-      "muscleGroup": "QUADRICEPS",
-      "equipment": "MACHINE"
-    },
-    {
-      "name": "Lat Pulldown",
-      "description": "Back exercise using cable machine",
-      "muscleGroup": "BACK",
-      "equipment": "CABLE_MACHINE"
-    },
-    {
-      "name": "Push-ups",
-      "description": "Bodyweight exercise for chest and triceps",
-      "muscleGroup": "CHEST",
-      "equipment": "BODYWEIGHT"
-    },
-    {
-      "name": "Deadlift",
-      "description": "Compound exercise for back and legs",
-      "muscleGroup": "BACK",
-      "equipment": "BARBELL"
-    },
-    {
-      "name": "Lateral Raises",
-      "description": "Isolation exercise for shoulder side delts",
-      "muscleGroup": "SHOULDERS",
-      "equipment": "DUMBBELL"
-    },
-    {
-      "name": "Calf Raises",
-      "description": "Isolation exercise for calves",
-      "muscleGroup": "CALVES",
-      "equipment": "MACHINE"
-    },
-    {
-      "name": "Hamstring Curls",
-      "description": "Isolation exercise for hamstrings",
-      "muscleGroup": "HAMSTRINGS",
-      "equipment": "MACHINE"
-    },
-    {
-      "name": "Crunches",
-      "description": "Abdominal exercise",
-      "muscleGroup": "ABS",
-      "equipment": "BODYWEIGHT"
-    },
-    {
-      "name": "Glute Bridge",
-      "description": "Isolation exercise for glutes",
-      "muscleGroup": "GLUTES",
-      "equipment": "BODYWEIGHT"
-    },
-    {
-      "name": "Wrist Curls",
-      "description": "Forearm exercise",
-      "muscleGroup": "FOREARMS",
-      "equipment": "DUMBBELL"
-    },
-    {
-      "name": "Face Pulls",
-      "description": "Upper back and rear delt exercise",
-      "muscleGroup": "BACK",
-      "equipment": "CABLE_MACHINE"
-    },
-    {
-      "name": "Romanian Deadlift",
-      "description": "Hip hinge movement for hamstrings and glutes",
-      "muscleGroup": "HAMSTRINGS",
-      "equipment": "BARBELL"
-    },
-    {
-      "name": "Incline Bench Press",
-      "description": "Chest exercise on an incline bench",
-      "muscleGroup": "CHEST",
-      "equipment": "BARBELL"
-    },
-    {
-      "name": "Preacher Curls",
-      "description": "Isolation exercise for biceps using a preacher bench",
-      "muscleGroup": "BICEPS",
-      "equipment": "BARBELL"
-    }
-  ]
-}
+[
+  {
+    "name": "Bench Press",
+    "description": "Classic chest exercise performed on a flat bench",
+    "equipment": "Barbell",
+    "muscleGroups": ["Chest", "Shoulders", "Triceps"]
+  },
+  {
+    "name": "Squat",
+    "description": "Fundamental lower body compound exercise",
+    "equipment": "Barbell",
+    "muscleGroups": ["Quadriceps", "Hamstrings", "Glutes", "Abs"]
+  },
+  {
+    "name": "Deadlift",
+    "description": "Full body compound movement",
+    "equipment": "Barbell",
+    "muscleGroups": ["Back", "Hamstrings", "Glutes", "Abs"]
+  },
+  {
+    "name": "Pull-up",
+    "description": "Upper body pulling exercise",
+    "equipment": "Bodyweight",
+    "muscleGroups": ["Back", "Biceps", "Shoulders"]
+  },
+  {
+    "name": "Push-up",
+    "description": "Bodyweight chest exercise",
+    "equipment": "Bodyweight",
+    "muscleGroups": ["Chest", "Shoulders", "Triceps"]
+  },
+  {
+    "name": "Dumbbell Row",
+    "description": "Single arm back exercise",
+    "equipment": "Dumbbell",
+    "muscleGroups": ["Back", "Biceps"]
+  },
+  {
+    "name": "Shoulder Press",
+    "description": "Overhead pressing movement",
+    "equipment": "Dumbbell",
+    "muscleGroups": ["Shoulders", "Triceps"]
+  },
+  {
+    "name": "Leg Press",
+    "description": "Machine-based leg exercise",
+    "equipment": "Machine",
+    "muscleGroups": ["Quadriceps", "Hamstrings", "Glutes"]
+  },
+  {
+    "name": "Lat Pulldown",
+    "description": "Machine-based back exercise",
+    "equipment": "Machine",
+    "muscleGroups": ["Back", "Biceps"]
+  },
+  {
+    "name": "Cable Fly",
+    "description": "Cable-based chest isolation",
+    "equipment": "Cable Machine",
+    "muscleGroups": ["Chest"]
+  }
+]

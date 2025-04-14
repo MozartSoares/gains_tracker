@@ -18,6 +18,6 @@ export enum Equipment {
   MACHINE = 'Machine',
   CABLE_MACHINE = 'Cable Machine',
   DUMBBELL = 'Dumbbell',
-  BAR = 'BAR',
+  BARBELL = 'Barbell',
   OTHER = 'Other',
 }

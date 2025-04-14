@@ -1,0 +1,130 @@
+[
+  {
+    "name": "Hipertrofia Avançada",
+    "description": "Programa focado em ganho de massa muscular para praticantes avançados",
+    "objective": "Hypertrophy",
+    "duration": 12,
+    "workouts": [
+      {
+        "workout": {
+          "_id": "67fc4f139b6da60cfc2a32c6",
+          "name": "Push Day",
+          "description": "Focused on chest and shoulders development",
+          "duration": 60,
+          "exercises": [
+            {
+              "exercise": {
+                "_id": "67fc4f139b6da60cfc2a32c6",
+                "name": "Bench Press",
+                "description": "The classical, the GOAT, the one and only BENCH PRESS",
+                "muscleGroups": ["Shoulders", "Chest", "Triceps"],
+                "equipment": "Barbell"
+              },
+              "sets": 4,
+              "reps": 8,
+              "weight": 60
+            }
+          ]
+        },
+        "order": 1,
+        "focus": "Peito e Ombros",
+        "tips": "Mantenha o core contraído durante todo o movimento"
+      },
+      {
+        "workout": {
+          "_id": "67fc597a9beb3818b8b1421b",
+          "name": "Pull Day",
+          "description": "Back and biceps focused workout",
+          "duration": 45,
+          "exercises": [
+            {
+              "exercise": {
+                "_id": "67fc59c89beb3818b8b14226",
+                "name": "Pull-up",
+                "description": "Upper body pulling exercise",
+                "muscleGroups": ["Back", "Biceps", "Shoulders"],
+                "equipment": "Bodyweight"
+              },
+              "sets": 4,
+              "reps": 8
+            }
+          ]
+        },
+        "order": 2,
+        "focus": "Costas e Bíceps",
+        "tips": "Mantenha as escápulas retraídas durante o movimento"
+      }
+    ],
+    "frequency": 4,
+    "level": "Advanced"
+  },
+  {
+    "name": "Emagrecimento Iniciante",
+    "description": "Programa para iniciantes focado em queima de gordura e condicionamento",
+    "objective": "Weight Loss",
+    "duration": 8,
+    "workouts": [
+      {
+        "workout": {
+          "_id": "67fc59c09beb3818b8b14224",
+          "name": "Full Body Power",
+          "description": "Complete body workout focusing on compound movements",
+          "duration": 75,
+          "exercises": [
+            {
+              "exercise": {
+                "_id": "67fc59a99beb3818b8b14221",
+                "name": "Deadlift",
+                "description": "Full body compound movement",
+                "muscleGroups": ["Back", "Hamstrings", "Glutes", "Abs"],
+                "equipment": "Barbell"
+              },
+              "sets": 4,
+              "reps": 5,
+              "weight": 120
+            }
+          ]
+        },
+        "order": 1,
+        "focus": "Corpo Inteiro",
+        "tips": "Comece com pesos mais leves para aprender a técnica"
+      }
+    ],
+    "frequency": 3,
+    "level": "Beginner"
+  },
+  {
+    "name": "Resistência Intermediária",
+    "description": "Programa focado em melhorar a resistência e condicionamento físico",
+    "objective": "Endurance",
+    "duration": 6,
+    "workouts": [
+      {
+        "workout": {
+          "_id": "67fc59cf9beb3818b8b14228",
+          "name": "Circuit Training",
+          "description": "High intensity circuit training",
+          "duration": 45,
+          "exercises": [
+            {
+              "exercise": {
+                "_id": "67fc59c09beb3818b8b14224",
+                "name": "Push-up",
+                "description": "Bodyweight chest exercise",
+                "muscleGroups": ["Chest", "Shoulders", "Triceps"],
+                "equipment": "Bodyweight"
+              },
+              "sets": 3,
+              "reps": 15
+            }
+          ]
+        },
+        "order": 1,
+        "focus": "Circuito de Alta Intensidade",
+        "tips": "Mantenha o ritmo constante e controle a respiração"
+      }
+    ],
+    "frequency": 4,
+    "level": "Intermediate"
+  }
+]

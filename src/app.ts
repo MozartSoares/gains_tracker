@@ -5,7 +5,7 @@ import swagger from '@fastify/swagger';
 import swaggerUi from '@fastify/swagger-ui';
 import { env } from './config';
 import { errorHandler } from './middleware/errorHandler';
-import { exerciseRoutes } from './routes/exercise.routes';
+import routes from './routes';
 import { swaggerOptions, swaggerUiOptions } from './docs/swagger';
 import { connectDB } from './config/database';
 
@@ -13,7 +13,6 @@ const app = fastify({
   logger: true,
 });
 
-// Connect to MongoDB
 connectDB();
 
 app.register(cors, {
@@ -28,6 +27,6 @@ app.register(swaggerUi, swaggerUiOptions);
 
 app.setErrorHandler(errorHandler);
 
-app.register(exerciseRoutes, { prefix: '/api' });
+app.register(routes, { prefix: '/api' });
 
 export default app;
