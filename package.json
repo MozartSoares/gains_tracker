@@ -13,8 +13,11 @@
     "@config": "dist/config"
   },
   "scripts": {
+    "clean": "rimraf dist",
+    "prebuild": "pnpm run clean",
+    "build": "tsc",
+    "postbuild": "cp -r src/tests/mocks dist/tests/mocks",
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only src/server.ts",
-    "build": "pnpm i --frozen-lockfile && rimraf dist && tsc",
     "start": "node -r module-alias/register dist/server.js",
     "start:prod": "NODE_ENV=production node -r module-alias/register dist/server.js",
     "test": "jest"
