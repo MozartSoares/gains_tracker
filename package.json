@@ -13,8 +13,6 @@
     "@config": "dist/config"
   },
   "scripts": {
-    "clean": "rimraf dist",
-    "prebuild": "pnpm run clean",
     "build": "tsc",
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only src/server.ts",
     "start": "node -r module-alias/register dist/server.js",
