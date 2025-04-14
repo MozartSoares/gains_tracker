@@ -234,7 +234,7 @@ export class ProgramController {
             .mixed<ProgramLevel>()
             .oneOf(Object.values(ProgramLevel), 'Invalid level')
             .optional(),
-          private: yup.boolean().optional().default(false),
+          isPrivate: yup.boolean().optional().default(false),
         })
         .validate(request.body);
 

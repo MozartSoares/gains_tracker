@@ -132,6 +132,7 @@ export class ExerciseController {
             .mixed<Equipment>()
             .oneOf(Object.values(Equipment), 'Invalid equipment')
             .required('Equipment is required'),
+          isPrivate: yup.boolean().optional(),
         })
         .validate(request.body)) as Exercise;
 
@@ -186,6 +187,7 @@ export class ExerciseController {
             .min(1, 'At least one muscle group is required')
             .optional(),
           equipment: yup.mixed<Equipment>().oneOf(Object.values(Equipment), 'Invalid equipment').optional(),
+          isPrivate: yup.boolean().optional(),
         })
         .validate(request.body)) as Partial<Exercise>;
 
