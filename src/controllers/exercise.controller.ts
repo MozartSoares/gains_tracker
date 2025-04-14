@@ -5,8 +5,8 @@ import { Controller, GET, POST, PUT, DELETE } from 'fastify-decorators';
 import * as yup from 'yup';
 import { Equipment, MuscleGroups } from '@models/Exercise/enums';
 import { AppError } from '../types/errors';
-import { throwError } from '../utils/throwError';
-import { authMiddleware, optionalAuthMiddleware } from '../middleware/auth.middleware';
+import { throwError } from '@/utils/throwError';
+import { authMiddleware, optionalAuthMiddleware } from '@/middleware/auth.middleware';
 
 @Controller({ route: '/exercises', tags: ['exercises'] })
 export class ExerciseController {
