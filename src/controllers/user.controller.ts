@@ -4,8 +4,8 @@ import { Controller, GET, POST } from 'fastify-decorators';
 import * as yup from 'yup';
 import { AppError } from '../types/errors';
 import { throwError } from '@utils/throwError';
-import { authMiddleware } from '@middleware/auth.middleware';
-import { UserModel } from '@models/User/model';
+import { authMiddleware, optionalAuthMiddleware } from '@middleware/auth.middleware';
+import { User, UserModel, getResponseUser } from '@models/User/model';
 
 @Controller({ route: '/users', tags: ['user'] })
 export class UserController {
@@ -118,9 +118,27 @@ export class UserController {
   async getProfile(request: FastifyRequest, reply: FastifyReply) {
     try {
       const user = await this.service.getProfile(request.user!.id);
-      return reply.status(200).send({ message: 'Profile retrieved successfully', data: user });
+      const userResponse = getResponseUser(user as unknown as User & { _id: string });
+      return reply
+        .status(200)
+        .send({ message: 'Profile retrieved successfully', data: userResponse });
     } catch (error) {
       throwError(error, 'Failed to retrieve profile');
+    }
+  }
+
+  @POST('/logout', {
+    schema: {
+      security: [{ bearerAuth: [] }],
+    },
+    preHandler: [optionalAuthMiddleware],
+  })
+  async logout(request: FastifyRequest, reply: FastifyReply) {
+    try {
+      await this.service.logout(request.user!.id);
+      return reply.status(200).send({ message: 'Logged out successfully' });
+    } catch (error) {
+      throwError(error, 'Failed to logout');
     }
   }
 }

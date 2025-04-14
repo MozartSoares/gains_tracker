@@ -109,8 +109,9 @@ export class ExerciseController {
             minItems: 1
           },
           equipment: { type: 'string', enum: Object.values(Equipment) },
+          isPrivate: { type: 'boolean', default: false }
         },
-        private: { type: 'boolean', optional: true, default: false },
+        required: ['name', 'muscleGroups', 'equipment']
       },
       security: [{ bearerAuth: [] }],
     },
@@ -160,8 +161,8 @@ export class ExerciseController {
             minItems: 1
           },
           equipment: { type: 'string', enum: Object.values(Equipment) },
-        },
-        private: { type: 'boolean', optional: true, default: false },
+          isPrivate: { type: 'boolean', default: false }
+        }
       },
       security: [{ bearerAuth: [] }],
     },

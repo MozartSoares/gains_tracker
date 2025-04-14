@@ -3,60 +3,160 @@
     "name": "Bench Press",
     "description": "Classic chest exercise performed on a flat bench",
     "equipment": "Barbell",
-    "muscleGroups": ["Chest", "Shoulders", "Triceps"]
+    "muscleGroups": ["Chest", "Shoulders", "Triceps"],
+    "isPrivate": false,
+    "userId": null
   },
   {
     "name": "Squat",
     "description": "Fundamental lower body compound exercise",
     "equipment": "Barbell",
-    "muscleGroups": ["Quadriceps", "Hamstrings", "Glutes", "Abs"]
+    "muscleGroups": ["Quadriceps", "Hamstrings", "Glutes", "Abs"],
+    "isPrivate": false,
+    "userId": null
   },
   {
     "name": "Deadlift",
     "description": "Full body compound movement",
     "equipment": "Barbell",
-    "muscleGroups": ["Back", "Hamstrings", "Glutes", "Abs"]
+    "muscleGroups": ["Back", "Hamstrings", "Glutes", "Abs"],
+    "isPrivate": false,
+    "userId": null
   },
   {
     "name": "Pull-up",
     "description": "Upper body pulling exercise",
     "equipment": "Bodyweight",
-    "muscleGroups": ["Back", "Biceps", "Shoulders"]
+    "muscleGroups": ["Back", "Biceps", "Shoulders"],
+    "isPrivate": false,
+    "userId": null
   },
   {
     "name": "Push-up",
     "description": "Bodyweight chest exercise",
     "equipment": "Bodyweight",
-    "muscleGroups": ["Chest", "Shoulders", "Triceps"]
+    "muscleGroups": ["Chest", "Shoulders", "Triceps"],
+    "isPrivate": false,
+    "userId": null
   },
   {
     "name": "Dumbbell Row",
     "description": "Single arm back exercise",
     "equipment": "Dumbbell",
-    "muscleGroups": ["Back", "Biceps"]
+    "muscleGroups": ["Back", "Biceps"],
+    "isPrivate": false,
+    "userId": null
   },
   {
     "name": "Shoulder Press",
     "description": "Overhead pressing movement",
     "equipment": "Dumbbell",
-    "muscleGroups": ["Shoulders", "Triceps"]
+    "muscleGroups": ["Shoulders", "Triceps"],
+    "isPrivate": false,
+    "userId": null
   },
   {
     "name": "Leg Press",
     "description": "Machine-based leg exercise",
     "equipment": "Machine",
-    "muscleGroups": ["Quadriceps", "Hamstrings", "Glutes"]
+    "muscleGroups": ["Quadriceps", "Hamstrings", "Glutes"],
+    "isPrivate": false,
+    "userId": null
   },
   {
     "name": "Lat Pulldown",
     "description": "Machine-based back exercise",
     "equipment": "Machine",
-    "muscleGroups": ["Back", "Biceps"]
+    "muscleGroups": ["Back", "Biceps"],
+    "isPrivate": false,
+    "userId": null
   },
   {
     "name": "Cable Fly",
     "description": "Cable-based chest isolation",
     "equipment": "Cable Machine",
-    "muscleGroups": ["Chest"]
+    "muscleGroups": ["Chest"],
+    "isPrivate": false,
+    "userId": null
+  },
+  {
+    "name": "Bicep Curl",
+    "description": "Arm curl with dumbbells",
+    "equipment": "Dumbbell",
+    "muscleGroups": ["Biceps"],
+    "isPrivate": false,
+    "userId": null
+  },
+  {
+    "name": "Tricep Extension",
+    "description": "Overhead tricep exercise",
+    "equipment": "Dumbbell",
+    "muscleGroups": ["Triceps"],
+    "isPrivate": false,
+    "userId": null
+  },
+  {
+    "name": "Lunges",
+    "description": "Single leg exercise",
+    "equipment": "Bodyweight",
+    "muscleGroups": ["Quadriceps", "Hamstrings", "Glutes"],
+    "isPrivate": false,
+    "userId": null
+  },
+  {
+    "name": "Plank",
+    "description": "Core stability exercise",
+    "equipment": "Bodyweight",
+    "muscleGroups": ["Abs"],
+    "isPrivate": false,
+    "userId": null
+  },
+  {
+    "name": "Russian Twist",
+    "description": "Rotational core exercise",
+    "equipment": "Dumbbell",
+    "muscleGroups": ["Abs", "Obliques"],
+    "isPrivate": false,
+    "userId": null
+  },
+  {
+    "name": "Calf Raise",
+    "description": "Lower leg exercise",
+    "equipment": "Machine",
+    "muscleGroups": ["Calves"],
+    "isPrivate": false,
+    "userId": null
+  },
+  {
+    "name": "Face Pull",
+    "description": "Upper back and rear deltoid exercise",
+    "equipment": "Cable Machine",
+    "muscleGroups": ["Back", "Shoulders"],
+    "isPrivate": false,
+    "userId": null
+  },
+  {
+    "name": "Lateral Raise",
+    "description": "Side deltoid isolation",
+    "equipment": "Dumbbell",
+    "muscleGroups": ["Shoulders"],
+    "isPrivate": false,
+    "userId": null
+  },
+  {
+    "name": "Leg Extension",
+    "description": "Quadriceps isolation",
+    "equipment": "Machine",
+    "muscleGroups": ["Quadriceps"],
+    "isPrivate": false,
+    "userId": null
+  },
+  {
+    "name": "Leg Curl",
+    "description": "Hamstring isolation",
+    "equipment": "Machine",
+    "muscleGroups": ["Hamstrings"],
+    "isPrivate": false,
+    "userId": null
   }
 ]

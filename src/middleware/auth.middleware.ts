@@ -2,14 +2,17 @@ import { FastifyRequest, FastifyReply } from 'fastify';
 import jwt from 'jsonwebtoken';
 import { AppError } from '@/types/errors';
 import { env } from '@config/env';
+import { UserService } from '@services/user.service';
+import { UserModel } from '@models/User/model';
+
+const userService = new UserService(UserModel);
 
 declare module 'fastify' {
   interface FastifyRequest {
     user?: {
       id: string;
       email: string;
-      provider?: string;
-    };
+    } | null;
   }
 }
 
@@ -19,9 +22,8 @@ export const authMiddleware = async (request: FastifyRequest, reply: FastifyRepl
     if (!authHeader) {
       throw new AppError(401, 'No token provided');
     }
-    console.log('optionalAuthMiddleware', authHeader);
 
-    const token = authHeader.split(' ')[1];
+    const [, token] = authHeader.split(' ');
     if (!token) {
       throw new AppError(401, 'Invalid token format');
     }
@@ -33,11 +35,15 @@ export const authMiddleware = async (request: FastifyRequest, reply: FastifyRepl
     const decoded = jwt.verify(token, env.JWT_SECRET) as {
       id: string;
       email: string;
-      provider?: string;
+      sessionToken: string;
     };
-    console.log('🚀 ~ decoded ~ decoded:', decoded);
+    const isValidSession = await userService.validateSession(decoded.id, decoded.sessionToken);
 
-    request.user = decoded;
+    if (!isValidSession) {
+      throw new AppError(401, 'Session expired');
+    }
+
+    request.user = { id: decoded.id, email: decoded.email };
   } catch (error) {
     if (error instanceof jwt.JsonWebTokenError) {
       throw new AppError(401, 'Invalid token');
@@ -48,29 +54,8 @@ export const authMiddleware = async (request: FastifyRequest, reply: FastifyRepl
 
 export const optionalAuthMiddleware = async (request: FastifyRequest, reply: FastifyReply) => {
   try {
-    const authHeader = request.headers.authorization;
-    if (!authHeader) {
-      return;
-    }
-
-    const token = authHeader.split(' ')[1];
-    if (!token) {
-      return;
-    }
-
-    if (!env.JWT_SECRET) {
-      return;
-    }
-
-    const decoded = jwt.verify(token, env.JWT_SECRET) as {
-      id: string;
-      email: string;
-      provider?: string;
-    };
-
-    request.user = decoded;
+    await authMiddleware(request, reply);
   } catch (error) {
-    // Silently fail for optional auth
-    return;
+    request.user = null;
   }
 };

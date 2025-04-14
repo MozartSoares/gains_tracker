@@ -1,4 +1,4 @@
-import { prop, getModelForClass, modelOptions } from '@typegoose/typegoose';
+import { prop, getModelForClass, modelOptions, DocumentType } from '@typegoose/typegoose';
 import { BaseModel } from '../Base/model';
 import { AuthProviders } from './auth';
 
@@ -7,12 +7,15 @@ import { AuthProviders } from './auth';
     timestamps: true,
     collection: 'users',
   },
+  options: {
+    allowMixed: 0,
+  },
 })
 export class User extends BaseModel {
   @prop({ required: true, unique: true })
   email!: string;
 
-  @prop()
+  @prop({ select: false })
   password?: string;
 
   @prop({ required: true })
@@ -32,6 +35,22 @@ export class User extends BaseModel {
 
   @prop({ default: AuthProviders.LOCAL, type: () => [String], enum: Object.values(AuthProviders) })
   provider!: AuthProviders;
+
+  @prop({ select: false })
+  sessionToken?: string;
 }
+
+export const getResponseUser = (user: User & { _id: string }) => {
+  return {
+    id: user._id.toString(),
+    email: user.email,
+    name: user.name,
+    lastLogin: user.lastLogin,
+    avatar: user.avatar,
+    provider: user.provider,
+    googleId: user.googleId,
+    githubId: user.githubId,
+  };
+};
 
 export const UserModel = getModelForClass(User);

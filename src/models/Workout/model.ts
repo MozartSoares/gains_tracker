@@ -24,7 +24,7 @@ export class Workout extends BaseModel {
   public exercises!: WorkoutExercise[];
 
   @prop({ default: false })
-  public private?: boolean;
+  public isPrivate?: boolean;
 
   @prop({ required: false, default: null })
   public userId!: string;
@@ -37,7 +37,7 @@ export const getResponseWorkout = (workout: Workout & { _id: string }) => {
     description: workout.description,
     duration: workout.duration,
     exercises: workout.exercises,
-    private: workout.private,
+    isPrivate: workout.isPrivate,
     userId: workout.userId,
   };
 };

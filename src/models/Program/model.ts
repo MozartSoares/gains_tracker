@@ -7,6 +7,9 @@ import { Workout } from '../Workout/model';
   schemaOptions: {
     timestamps: true,
   },
+  options: {
+    allowMixed: 0,
+  },
 })
 export class Program extends BaseModel {
   @prop({ required: true })
@@ -36,7 +39,7 @@ export class Program extends BaseModel {
   public level?: ProgramLevel;
 
   @prop({ default: false })
-  public private?: boolean;
+  public isPrivate?: boolean;
 
   @prop({ required: false, default: null })
   public userId!: string;
@@ -52,7 +55,7 @@ export const getResponseProgram = (program: Program & { _id: string }) => {
     workouts: program.workouts,
     frequency: program.frequency,
     level: program.level,
-    private: program.private,
+    isPrivate: program.isPrivate,
     userId: program.userId,
   };
 };

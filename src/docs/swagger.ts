@@ -2,6 +2,10 @@ import { FastifyDynamicSwaggerOptions } from '@fastify/swagger';
 import { FastifySwaggerUiOptions } from '@fastify/swagger-ui';
 import { Equipment, MuscleGroups } from '@models/Exercise/enums';
 import { ProgramObjective, ProgramLevel } from '@models/Program/enums';
+import { env } from '@config/env';
+
+const isProd = env.NODE_ENV === 'production';
+const baseUrl = isProd ? 'https://gains-tracker-14tn.onrender.com' : `http://localhost:${env.PORT}`;
 
 export const swaggerOptions: FastifyDynamicSwaggerOptions = {
   openapi: {
@@ -16,8 +20,8 @@ export const swaggerOptions: FastifyDynamicSwaggerOptions = {
     },
     servers: [
       {
-        url: 'http://localhost:3000',
-        description: 'Development server',
+        url: baseUrl,
+        description: isProd ? 'Production server' : 'Development server',
       },
     ],
     security: [

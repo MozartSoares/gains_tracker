@@ -126,7 +126,7 @@ export class WorkoutController {
             },
             minItems: 1,
           },
-          private: { type: 'boolean' },
+          isPrivate: { type: 'boolean', default: false },
         },
         required: ['name', 'duration', 'exercises'],
       },
@@ -156,7 +156,7 @@ export class WorkoutController {
             )
             .min(1, 'At least one exercise is required')
             .required('Exercises are required'),
-          private: yup.boolean().optional().default(false),
+          isPrivate: yup.boolean().optional().default(false),
         })
         .validate(request.body);
 
@@ -198,7 +198,7 @@ export class WorkoutController {
             },
             minItems: 1,
           },
-          private: { type: 'boolean' },
+          isPrivate: { type: 'boolean', default: false },
         },
       },
       security: [{ bearerAuth: [] }],
@@ -230,7 +230,7 @@ export class WorkoutController {
             )
             .min(1, 'At least one exercise is required')
             .optional(),
-          private: yup.boolean().optional().default(false),
+          isPrivate: yup.boolean().optional().default(false),
         })
         .validate(request.body);
 
@@ -267,7 +267,7 @@ export class WorkoutController {
     },
     preHandler: [authMiddleware],
   })
-  async delete(request: FastifyRequest<{ Params: { id: string } }>, reply: FastifyReply) {
+  async delete(request: FastifyRequest, reply: FastifyReply) {
     try {
       const { id } = await yup
         .object({
@@ -285,7 +285,7 @@ export class WorkoutController {
       }
 
       await this.workoutService.delete(id, request.user!.id);
-      return reply.status(204).send({ message: 'Workout deleted successfully' });
+      return reply.status(200).send({ message: 'Workout deleted successfully' });
     } catch (error) {
       throwError(error, 'Failed to delete workout');
     }

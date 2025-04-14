@@ -1,150 +1,294 @@
-{
-  "workouts": [
-    {
-      "id": "1",
-      "name": "Treino de Peito",
-      "description": "Foco em exercícios de peito com peso livre",
-      "duration": 45,
-      "exercises": [
-        {
-          "exercise": {
-            "id": "1",
-            "name": "Bench Press",
-            "description": "Exercício básico de peito com barra",
-            "muscleGroup": "CHEST",
-            "equipment": "BARBELL"
-          },
-          "sets": 4,
-          "reps": 12,
-          "weight": 60
-        },
-        {
-          "exercise": {
-            "id": "2",
-            "name": "Incline Dumbbell Press",
-            "description": "Press com halteres em banco inclinado",
-            "muscleGroup": "CHEST",
-            "equipment": "DUMBBELL"
-          },
-          "sets": 3,
-          "reps": 12,
-          "weight": 20
-        }
-      ],
-      "createdAt": "2024-03-20T10:00:00Z",
-      "updatedAt": "2024-03-20T10:00:00Z"
-    },
-    {
-      "id": "2",
-      "name": "Treino de Pernas",
-      "description": "Treino completo de pernas",
-      "duration": 60,
-      "exercises": [
-        {
-          "exercise": {
-            "id": "3",
-            "name": "Squat",
-            "description": "Agachamento com barra",
-            "muscleGroup": "LEGS",
-            "equipment": "BARBELL"
-          },
-          "sets": 5,
-          "reps": 8,
-          "weight": 100
-        },
-        {
-          "exercise": {
-            "id": "4",
-            "name": "Leg Press",
-            "description": "Press de pernas na máquina",
-            "muscleGroup": "LEGS",
-            "equipment": "MACHINE"
-          },
-          "sets": 4,
-          "reps": 12,
-          "weight": 120
-        }
-      ],
-      "createdAt": "2024-03-20T11:00:00Z",
-      "updatedAt": "2024-03-20T11:00:00Z"
-    },
-    {
-      "id": "3",
-      "name": "Treino de Costas",
-      "description": "Foco em exercícios de costas",
-      "duration": 50,
-      "exercises": [
-        {
-          "exercise": {
-            "id": "5",
-            "name": "Pull-up",
-            "description": "Barra fixa",
-            "muscleGroup": "BACK",
-            "equipment": "BODYWEIGHT"
-          },
-          "sets": 4,
-          "reps": 8
-        },
-        {
-          "exercise": {
-            "id": "6",
-            "name": "Barbell Row",
-            "description": "Remada com barra",
-            "muscleGroup": "BACK",
-            "equipment": "BARBELL"
-          },
-          "sets": 4,
-          "reps": 12,
-          "weight": 50
-        }
-      ],
-      "createdAt": "2024-03-20T12:00:00Z",
-      "updatedAt": "2024-03-20T12:00:00Z"
-    },
-    {
-      "id": "4",
-      "name": "Treino Full Body",
-      "description": "Treino completo do corpo",
-      "duration": 75,
-      "exercises": [
-        {
-          "exercise": {
-            "id": "1",
-            "name": "Bench Press",
-            "description": "Exercício básico de peito com barra",
-            "muscleGroup": "CHEST",
-            "equipment": "BARBELL"
-          },
-          "sets": 3,
-          "reps": 10,
-          "weight": 50
-        },
-        {
-          "exercise": {
-            "id": "3",
-            "name": "Squat",
-            "description": "Agachamento com barra",
-            "muscleGroup": "LEGS",
-            "equipment": "BARBELL"
-          },
-          "sets": 3,
-          "reps": 10,
-          "weight": 80
-        },
-        {
-          "exercise": {
-            "id": "5",
-            "name": "Pull-up",
-            "description": "Barra fixa",
-            "muscleGroup": "BACK",
-            "equipment": "BODYWEIGHT"
-          },
-          "sets": 3,
-          "reps": 8
-        }
-      ],
-      "createdAt": "2024-03-20T13:00:00Z",
-      "updatedAt": "2024-03-20T13:00:00Z"
-    }
-  ]
-}
+[
+  {
+    "name": "Full Body Workout",
+    "description": "Complete full body workout targeting all major muscle groups",
+    "duration": 60,
+    "exercises": [
+      {
+        "exerciseId": "bench-press",
+        "sets": 3,
+        "reps": 10,
+        "weight": 0,
+        "restTime": 90
+      },
+      {
+        "exerciseId": "squat",
+        "sets": 4,
+        "reps": 8,
+        "weight": 0,
+        "restTime": 120
+      },
+      {
+        "exerciseId": "deadlift",
+        "sets": 3,
+        "reps": 8,
+        "weight": 0,
+        "restTime": 120
+      },
+      {
+        "exerciseId": "pull-up",
+        "sets": 3,
+        "reps": 8,
+        "weight": 0,
+        "restTime": 90
+      },
+      {
+        "exerciseId": "shoulder-press",
+        "sets": 3,
+        "reps": 10,
+        "weight": 0,
+        "restTime": 90
+      }
+    ],
+    "isPrivate": false,
+    "userId": null
+  },
+  {
+    "name": "Upper Body Focus",
+    "description": "Upper body workout focusing on chest, back, and shoulders",
+    "duration": 45,
+    "exercises": [
+      {
+        "exerciseId": "bench-press",
+        "sets": 4,
+        "reps": 8,
+        "weight": 0,
+        "restTime": 90
+      },
+      {
+        "exerciseId": "pull-up",
+        "sets": 4,
+        "reps": 8,
+        "weight": 0,
+        "restTime": 90
+      },
+      {
+        "exerciseId": "dumbbell-row",
+        "sets": 3,
+        "reps": 12,
+        "weight": 0,
+        "restTime": 60
+      },
+      {
+        "exerciseId": "shoulder-press",
+        "sets": 3,
+        "reps": 10,
+        "weight": 0,
+        "restTime": 90
+      },
+      {
+        "exerciseId": "lat-pulldown",
+        "sets": 3,
+        "reps": 12,
+        "weight": 0,
+        "restTime": 60
+      },
+      {
+        "exerciseId": "cable-fly",
+        "sets": 3,
+        "reps": 12,
+        "weight": 0,
+        "restTime": 60
+      }
+    ],
+    "isPrivate": false,
+    "userId": null
+  },
+  {
+    "name": "Lower Body Focus",
+    "description": "Lower body workout focusing on legs and glutes",
+    "duration": 45,
+    "exercises": [
+      {
+        "exerciseId": "squat",
+        "sets": 4,
+        "reps": 8,
+        "weight": 0,
+        "restTime": 120
+      },
+      {
+        "exerciseId": "deadlift",
+        "sets": 4,
+        "reps": 8,
+        "weight": 0,
+        "restTime": 120
+      },
+      {
+        "exerciseId": "leg-press",
+        "sets": 3,
+        "reps": 12,
+        "weight": 0,
+        "restTime": 90
+      },
+      {
+        "exerciseId": "lunges",
+        "sets": 3,
+        "reps": 12,
+        "weight": 0,
+        "restTime": 60
+      },
+      {
+        "exerciseId": "leg-extension",
+        "sets": 3,
+        "reps": 15,
+        "weight": 0,
+        "restTime": 60
+      },
+      {
+        "exerciseId": "leg-curl",
+        "sets": 3,
+        "reps": 15,
+        "weight": 0,
+        "restTime": 60
+      },
+      {
+        "exerciseId": "calf-raise",
+        "sets": 4,
+        "reps": 15,
+        "weight": 0,
+        "restTime": 60
+      }
+    ],
+    "isPrivate": false,
+    "userId": null
+  },
+  {
+    "name": "Core Workout",
+    "description": "Workout focusing on core and abs",
+    "duration": 30,
+    "exercises": [
+      {
+        "exerciseId": "plank",
+        "sets": 3,
+        "reps": 1,
+        "weight": 0,
+        "restTime": 60
+      },
+      {
+        "exerciseId": "russian-twist",
+        "sets": 3,
+        "reps": 15,
+        "weight": 0,
+        "restTime": 45
+      },
+      {
+        "exerciseId": "push-up",
+        "sets": 3,
+        "reps": 12,
+        "weight": 0,
+        "restTime": 60
+      },
+      {
+        "exerciseId": "deadlift",
+        "sets": 3,
+        "reps": 10,
+        "weight": 0,
+        "restTime": 90
+      }
+    ],
+    "isPrivate": false,
+    "userId": null
+  },
+  {
+    "name": "Push Day",
+    "description": "Workout focusing on pushing movements",
+    "duration": 50,
+    "exercises": [
+      {
+        "exerciseId": "bench-press",
+        "sets": 4,
+        "reps": 8,
+        "weight": 0,
+        "restTime": 90
+      },
+      {
+        "exerciseId": "shoulder-press",
+        "sets": 3,
+        "reps": 10,
+        "weight": 0,
+        "restTime": 90
+      },
+      {
+        "exerciseId": "cable-fly",
+        "sets": 3,
+        "reps": 12,
+        "weight": 0,
+        "restTime": 60
+      },
+      {
+        "exerciseId": "lateral-raise",
+        "sets": 3,
+        "reps": 12,
+        "weight": 0,
+        "restTime": 60
+      },
+      {
+        "exerciseId": "tricep-extension",
+        "sets": 3,
+        "reps": 12,
+        "weight": 0,
+        "restTime": 60
+      },
+      {
+        "exerciseId": "push-up",
+        "sets": 3,
+        "reps": 15,
+        "weight": 0,
+        "restTime": 60
+      }
+    ],
+    "isPrivate": false,
+    "userId": null
+  },
+  {
+    "name": "Pull Day",
+    "description": "Workout focusing on pulling movements",
+    "duration": 50,
+    "exercises": [
+      {
+        "exerciseId": "pull-up",
+        "sets": 4,
+        "reps": 8,
+        "weight": 0,
+        "restTime": 90
+      },
+      {
+        "exerciseId": "deadlift",
+        "sets": 4,
+        "reps": 8,
+        "weight": 0,
+        "restTime": 120
+      },
+      {
+        "exerciseId": "dumbbell-row",
+        "sets": 3,
+        "reps": 12,
+        "weight": 0,
+        "restTime": 60
+      },
+      {
+        "exerciseId": "lat-pulldown",
+        "sets": 3,
+        "reps": 12,
+        "weight": 0,
+        "restTime": 60
+      },
+      {
+        "exerciseId": "face-pull",
+        "sets": 3,
+        "reps": 15,
+        "weight": 0,
+        "restTime": 60
+      },
+      {
+        "exerciseId": "bicep-curl",
+        "sets": 3,
+        "reps": 12,
+        "weight": 0,
+        "restTime": 60
+      }
+    ],
+    "isPrivate": false,
+    "userId": null
+  }
+]

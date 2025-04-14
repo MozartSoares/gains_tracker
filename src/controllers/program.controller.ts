@@ -116,7 +116,7 @@ export class ProgramController {
           workouts: { type: 'array', items: { type: 'object' } },
           frequency: { type: 'number' },
           level: { type: 'string', enum: Object.values(ProgramLevel) },
-          private: { type: 'boolean' },
+          isPrivate: { type: 'boolean', default: false },
         },
         required: ['name', 'objective', 'duration', 'workouts'],
       },
@@ -190,7 +190,7 @@ export class ProgramController {
           workouts: { type: 'array', items: { type: 'object' } },
           frequency: { type: 'number' },
           level: { type: 'string', enum: Object.values(ProgramLevel) },
-          private: { type: 'boolean' },
+          isPrivate: { type: 'boolean', default: false },
         },
       },
       security: [{ bearerAuth: [] }],
@@ -289,7 +289,7 @@ export class ProgramController {
       }
 
       await this.service.delete(id, request.user!.id);
-      return reply.status(204).send({ message: 'Program deleted successfully' });
+      return reply.status(200).send({ message: 'Program deleted successfully' });
     } catch (error) {
       throwError(error, 'Failed to delete program');
     }

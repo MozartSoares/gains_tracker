@@ -7,7 +7,7 @@ export class BaseService<T> {
     return this.model.find({ deleted_at: { $exists: false }, 
       $or: [
       { userId },
-      { private: false }
+      { isPrivate: false }
     ] }).exec();
   }
 
@@ -15,7 +15,7 @@ export class BaseService<T> {
     return this.model.findOne({
       _id: id,
       deleted_at: { $exists: false },
-      $or: [{ userId }, { private: false }],
+      $or: [{ userId }, { isPrivate: false }],
     }).exec();
   }
 

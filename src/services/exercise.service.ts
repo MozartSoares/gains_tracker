@@ -16,14 +16,23 @@ export class ExerciseService extends BaseService<Exercise> {
     return this.model.find({ userId: null, deleted_at: { $exists: false } }).exec();
   }
 
-  async findByMuscleGroup(muscleGroup: MuscleGroups, userId: string,defaults = true,mine = true) {
-    return this.model.find({ 
-      muscleGroups: muscleGroup, 
-      deleted_at: { $exists: false },
-      $or: [
-        { userId },
-        { private: false }
-      ]
-    }).exec();
+  async findByMuscleGroup(muscleGroup: MuscleGroups, userId: string, publicExercises = true) {
+    const query: any = {
+      muscleGroups: muscleGroup,
+      deleted_at: null
+    };
+
+    if (userId && publicExercises) {
+      query.$or = [
+        { isPrivate: false },
+        { userId }
+      ];
+    } else if (userId) {
+      query.userId = userId;
+    } else {
+      query.isPrivate = false;
+    }
+
+    return this.model.find(query);
   }
 }
