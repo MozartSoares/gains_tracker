@@ -1,4 +1,11 @@
-import { getExercises, getWorkouts, createWorkout, updateWorkout, deleteWorkout, getUser } from './api.js';
+import {
+  getExercises,
+  getWorkouts,
+  createWorkout,
+  updateWorkout,
+  deleteWorkout,
+  getUser,
+} from './api.js';
 import { workoutDurations, setRanges, repRanges } from '../models/index.js';
 import { checkPageAuth } from './auth.js';
 
@@ -19,6 +26,9 @@ const addExerciseBtn = document.getElementById('addExerciseBtn');
 
 let currentFilter = '';
 let workouts = [];
+let exercises = [];
+let editingWorkoutId = null;
+let exerciseEntryCount = 0;
 
 async function initWorkoutsPage() {
   const isAuthenticated = checkPageAuth('workouts-section', 'Workout Library');
@@ -45,7 +55,6 @@ function populateFilterOptions() {
 async function loadExercises() {
   try {
     exercises = await getExercises();
-
     const exerciseSelect = document.querySelector('.exercise-select');
     populateExerciseOptions(exerciseSelect);
   } catch (error) {
@@ -322,10 +331,11 @@ async function editWorkout(workoutId) {
       addExerciseEntry();
 
       const entry = exerciseList.children[index];
-      entry.querySelector('.exercise-select').value = exercise.exerciseId;
+      entry.querySelector('.exercise-select').value = exercise.exercise;
       entry.querySelector(`select[name="exercises[${index}][sets]"]`).value = exercise.sets;
       entry.querySelector(`select[name="exercises[${index}][reps]"]`).value = exercise.reps;
-      entry.querySelector(`input[name="exercises[${index}][weight]"]`).value = exercise.weight || '';
+      entry.querySelector(`input[name="exercises[${index}][weight]"]`).value =
+        exercise.weight || '';
     });
 
     workoutModal.style.display = 'flex';
