@@ -72,7 +72,12 @@ export class UserController {
       const result = await this.service.login(email, password);
       return reply.status(200).send({
         message: 'Login successful',
-        data: { name: result.user.name, email: result.user.email, token: result.token },
+        data: {
+          name: result.user.name,
+          email: result.user.email,
+          token: result.token,
+          userId: getResponseUser(result.user as unknown as User & { _id: string }).id,
+        },
       });
     } catch (error) {
       if (error instanceof AppError && error.message === 'Please login with GitHub') {
