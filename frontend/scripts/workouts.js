@@ -45,6 +45,7 @@ async function initWorkoutsPage() {
 function populateFilterOptions() {
   workoutDurations.forEach((duration) => {
     const option = document.createElement('option');
+    option.value = duration;
     option.textContent = `${duration} minutes`;
     workoutDurationSelect.appendChild(option);
   });
@@ -95,7 +96,7 @@ async function fetchWorkouts() {
 function populateExerciseOptions(selectElement) {
   exercises.forEach((exercise) => {
     const option = document.createElement('option');
-    option.value = exercise;
+    option.value = exercise.id;
     option.textContent = exercise.name;
     selectElement.appendChild(option);
   });
@@ -331,7 +332,7 @@ async function editWorkout(workoutId) {
       addExerciseEntry();
 
       const entry = exerciseList.children[index];
-      entry.querySelector('.exercise-select').value = exercise.exercise;
+      entry.querySelector('.exercise-select').value = exercise.exercise.id;
       entry.querySelector(`select[name="exercises[${index}][sets]"]`).value = exercise.sets;
       entry.querySelector(`select[name="exercises[${index}][reps]"]`).value = exercise.reps;
       entry.querySelector(`input[name="exercises[${index}][weight]"]`).value =
@@ -370,7 +371,6 @@ async function handleWorkoutSubmit(e) {
     const exerciseEntries = exerciseList.querySelectorAll('.exercise-entry');
     exerciseEntries.forEach((entry, index) => {
       const exerciseId = entry.querySelector('.exercise-select').value;
-
       const exerciseObj = exercises.find((ex) => ex.id === exerciseId);
 
       const sets = parseInt(entry.querySelector(`select[name="exercises[${index}][sets]"]`).value);
