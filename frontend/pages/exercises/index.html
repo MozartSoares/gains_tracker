@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercises - Gains Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/exercises.css" />
+    <link rel="stylesheet" href="/styles/auth.css" />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main>
+      <section class="exercises-section">
+        <div class="container">
+          <h1 class="page-title">Exercise Library</h1>
+          <p class="page-subtitle">Browse, filter, and create your own custom exercises</p>
+
+          <div class="exercise-controls">
+            <div class="filter-controls">
+              <div class="filter-group">
+                <label>Filter By:</label>
+                <div class="filter-buttons">
+                  <button id="allExercises" class="filter-btn active" data-filter="">All Exercises</button>
+                  <button id="defaultExercises" class="filter-btn" data-filter="default">Default Exercises</button>
+                  <button id="myExercises" class="filter-btn" data-filter="me">My Exercises</button>
+                </div>
+              </div>
+
+              <div class="filter-group">
+                <label for="muscleGroup">Muscle Group:</label>
+                <select id="muscleGroup" class="filter-select">
+                  <option value="">All Muscle Groups</option>
+                  <!-- Muscle groups will be added via JavaScript -->
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="equipment">Equipment:</label>
+                <select id="equipment" class="filter-select">
+                  <option value="">All Equipment</option>
+                  <!-- Equipment options will be added via JavaScript -->
+                </select>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <button id="createExercise" class="btn btn-primary"><i class="fas fa-plus"></i> Create Exercise</button>
+            </div>
+          </div>
+
+          <div class="exercise-table-container">
+            <table id="exerciseTable" class="exercise-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Muscle Groups</th>
+                  <th>Equipment</th>
+                  <th>Created By</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="exerciseTableBody">
+                <!-- Exercises will be loaded dynamically -->
+                <tr class="loading-row">
+                  <td colspan="5" class="text-center">
+                    <div class="loading-spinner"></div>
+                    <p>Loading exercises...</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Empty state message if no exercises -->
+          <div id="emptyState" class="empty-state">
+            <div class="empty-state-icon">
+              <i class="fas fa-dumbbell"></i>
+            </div>
+            <h2>No exercises found</h2>
+            <p id="emptyStateMessage">You haven't created any custom exercises yet.</p>
+            <button id="emptyStateBtn" class="btn btn-primary">Create Your First Exercise</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Exercise Creation Modal -->
+      <div id="exerciseModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">Create New Exercise</h2>
+            <button id="closeModal" class="close-btn">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form id="exerciseForm">
+              <div class="form-group">
+                <label for="exerciseName" class="form-label">Exercise Name*</label>
+                <input type="text" id="exerciseName" name="name" class="form-input" required />
+              </div>
+
+              <div class="form-group">
+                <label for="exerciseDescription" class="form-label">Description*</label>
+                <textarea id="exerciseDescription" name="description" class="form-textarea" required></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Muscle Groups* (select at least one)</label>
+                <div id="muscleGroupCheckboxes" class="checkbox-container">
+                  <!-- Will be populated with JavaScript -->
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="exerciseEquipment" class="form-label">Equipment*</label>
+                <select id="exerciseEquipment" name="equipment" class="form-select" required>
+                  <!-- Will be populated with JavaScript -->
+                </select>
+              </div>
+
+              <div class="form-check">
+                <input type="checkbox" id="isPublic" name="isPublic" />
+                <label for="isPublic">Make this exercise public (visible to all users)</label>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="cancelExercise" class="btn-cancel">Cancel</button>
+            <button type="submit" form="exerciseForm" class="btn-submit">Save Exercise</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+      <div class="notification-content">
+        <i class="fas fa-check-circle"></i>
+        <span id="notificationMessage">Operation completed successfully</span>
+      </div>
+    </div>
+
+    <script src="/scripts/components.js"></script>
+    <script type="module" src="/scripts/exercises.js"></script>
+  </body>
+</html>

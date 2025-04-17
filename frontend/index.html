@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gains Tracker - Track Your Fitness Journey</title>
+    <meta http-equiv="refresh" content="0;url=/pages/home/index.html" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <style>
+      .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        font-family: var(--font-family-primary);
+        color: var(--primary-color);
+      }
+
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid rgba(58, 134, 255, 0.2);
+        border-radius: 50%;
+        border-top-color: var(--primary-color);
+        animation: spin 1s ease-in-out infinite;
+        margin-bottom: 1rem;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading">
+      <div class="loading-spinner"></div>
+      <h2>Redirecting to Gains Tracker...</h2>
+    </div>
+
+    <script>
+      window.location.href = '/pages/home/index.html';
+    </script>
+  </body>
+</html>

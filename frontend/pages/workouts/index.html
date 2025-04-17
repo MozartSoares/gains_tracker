@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workouts - Gains Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/workouts.css" />
+    <link rel="stylesheet" href="/styles/auth.css" />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main>
+      <section class="workouts-section">
+        <div class="container">
+          <h1 class="page-title">Workout Library</h1>
+          <p class="page-subtitle">Browse, filter, and create your own custom workouts</p>
+
+          <div class="workout-controls">
+            <div class="filter-controls">
+              <div class="filter-group">
+                <label>Filter By:</label>
+                <div class="filter-buttons">
+                  <button id="allWorkouts" class="filter-btn active" data-filter="">All Workouts</button>
+                  <button id="defaultWorkouts" class="filter-btn" data-filter="default">Default Workouts</button>
+                  <button id="myWorkouts" class="filter-btn" data-filter="me">My Workouts</button>
+                </div>
+              </div>
+
+              <div class="filter-group">
+                <label for="durationFilter">Duration:</label>
+                <select id="durationFilter" class="filter-select">
+                  <option value="">All Durations</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <button id="createWorkout" class="btn btn-primary"><i class="fas fa-plus"></i> Create Workout</button>
+            </div>
+          </div>
+
+          <div class="workout-table-container">
+            <table id="workoutTable" class="workout-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Duration</th>
+                  <th>Exercises</th>
+                  <th>Created By</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="workoutTableBody">
+                <tr class="loading-row">
+                  <td colspan="5" class="text-center">
+                    <div class="loading-spinner"></div>
+                    <p>Loading workouts...</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div id="emptyState" class="empty-state">
+            <div class="empty-state-icon">
+              <i class="fas fa-dumbbell"></i>
+            </div>
+            <h2>No workouts found</h2>
+            <p id="emptyStateMessage">You haven't created any custom workouts yet.</p>
+            <button id="emptyStateBtn" class="btn btn-primary">Create Your First Workout</button>
+          </div>
+        </div>
+      </section>
+
+      <div id="workoutModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">Create New Workout</h2>
+            <button id="closeModal" class="close-btn">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form id="workoutForm">
+              <div class="form-group">
+                <label for="workoutName" class="form-label">Workout Name*</label>
+                <input type="text" id="workoutName" name="name" class="form-input" required />
+              </div>
+
+              <div class="form-group">
+                <label for="workoutDescription" class="form-label">Description</label>
+                <textarea id="workoutDescription" name="description" class="form-textarea"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="workoutDuration" class="form-label">Duration (minutes)*</label>
+                <select id="workoutDuration" name="duration" class="form-select" required></select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Exercises*</label>
+                <div id="exerciseList" class="exercise-list">
+                  <div class="exercise-entry">
+                    <div class="exercise-row">
+                      <select
+                        name="exercises[0][exercise]"
+                        class="form-select exercise-select"
+                        required
+                        aria-label="Select exercise"
+                      >
+                        <option value="">Select Exercise</option>
+                      </select>
+                      <button type="button" class="remove-exercise-btn" disabled aria-label="Remove exercise">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </div>
+                    <div class="exercise-details">
+                      <div class="exercise-detail">
+                        <label for="exercise0Sets">Sets</label>
+                        <select
+                          id="exercise0Sets"
+                          name="exercises[0][sets]"
+                          class="form-select"
+                          aria-label="Number of sets"
+                        ></select>
+                      </div>
+                      <div class="exercise-detail">
+                        <label for="exercise0Reps">Reps</label>
+                        <select
+                          id="exercise0Reps"
+                          name="exercises[0][reps]"
+                          class="form-select"
+                          aria-label="Number of repetitions"
+                        ></select>
+                      </div>
+                      <div class="exercise-detail">
+                        <label for="exercise0Weight">Weight (kg)</label>
+                        <input
+                          type="number"
+                          id="exercise0Weight"
+                          name="exercises[0][weight]"
+                          class="form-input"
+                          min="0"
+                          step="0.5"
+                          aria-label="Weight in kilograms"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button type="button" id="addExerciseBtn" class="add-exercise-btn">
+                  <i class="fas fa-plus"></i> Add Exercise
+                </button>
+              </div>
+
+              <div class="form-check">
+                <input type="checkbox" id="isPublic" name="isPublic" />
+                <label for="isPublic">Make this workout public (visible to all users)</label>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="cancelWorkout" class="btn-cancel">Cancel</button>
+            <button type="submit" form="workoutForm" class="btn-submit">Save Workout</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/scripts/components.js"></script>
+    <script type="module" src="/scripts/workouts.js"></script>
+  </body>
+</html>

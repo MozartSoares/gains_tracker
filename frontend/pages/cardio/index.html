@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cardio Helper - Gains Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/cardio.css" />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main>
+      <section class="cardio-section">
+        <div class="container">
+          <h1 class="page-title">Cardio Helper</h1>
+          <p class="subtitle">Your personal assistant for optimal cardio workouts</p>
+
+          <div class="intro-text">
+            <p>
+              Welcome to the Cardio Helper! This tool is designed to enhance your cardio workout experience by providing
+              valuable insights based on weather conditions and more.
+            </p>
+            <p>
+              Whether you're planning a run, cycling session, or any outdoor cardio activity, we'll help you make the
+              most of your workout by analyzing real-time environmental factors.
+            </p>
+          </div>
+
+          <div class="cardio-container">
+            <div class="weather-card">
+              <div id="loading" class="loading-spinner" style="display: none"></div>
+              <div id="weather-result" class="weather-result">
+                <p class="weather-prompt">
+                  Check the current weather conditions to see if it's a good time for cardio.
+                </p>
+                <button id="check-weather" class="btn primary-btn">
+                  <i class="fas fa-cloud-sun"></i> Check conditions for my cardio
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/scripts/components.js" type="module"></script>
+    <script src="/scripts/cardio.js" type="module"></script>
+  </body>
+</html>
